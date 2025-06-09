@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/**/*",
-      "use": "@vercel/static"
+      "src": "index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/frontend/index.html"
-    },
-    {
-      "src": "/(.*\\.(?:js|css|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot))$",
-      "dest": "/frontend/$1.$2"
+      "dest": "/" 
     }
   ]
 }
