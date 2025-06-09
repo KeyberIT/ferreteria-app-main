@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FERREMUNDO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="login-section" class="section">
+        <div class="login-container">
+            <div style="text-align: center; margin: 0 auto; display: table;">
+                <form id="login-form" class="auth-form" style="display: inline-block; margin: 0 auto;">
+                    <h2>Iniciar Sesión</h2>
+                    <div class="login-type">
+                        <label>
+                            <input type="radio" name="login-type" value="user" checked>
+                            <span>Usuario</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="login-type" value="admin">
+                            <span>Administrador</span>
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="login-username" placeholder="Nombre de usuario" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <p class="form-footer">¿No tienes cuenta? <a href="#" id="show-register" class="link">Regístrate</a></p>
+                </form>
+            </div>
+
+            <div style="text-align: center;">
+                <form id="register-form" class="auth-form" style="display: none;">
+                    <h2>Registrarse</h2>
+                    <input type="hidden" name="register-type" value="user">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-username" placeholder="Nombre de usuario" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <p class="form-footer">¿Ya tienes cuenta? <a href="#" id="show-login" class="link">Iniciar Sesión</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-section" class="section" style="display: none;">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-tools"></i> FERREMUNDO</h1>
+                <button id="logout-btn" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div id="cart-container" class="cart-container">
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <div class="cart-summary">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <button id="clear-cart" class="btn btn-danger">Realizar Compra</button>
+            </div>
+        </div>
+
+        <main>
+            <div id="product-list" class="product-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+
+            <div id="admin-dashboard" class="admin-panel" style="display: none;">
+                <h2>Panel de Administración</h2>
+                <form id="product-form" class="product-form">
+                    <h3>Agregar/Editar Producto</h3>
+                    <div class="input-group">
+                        <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="product-description" placeholder="Descripción" required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="product-price" placeholder="Precio" step="0.01" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="product-stock" placeholder="Stock" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="product-category" placeholder="Categoría" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="product-image" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i> Subir Imagen del Producto
+                            <input type="file" id="product-image" name="product-image" accept="image/*" class="file-upload-input">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+
+    <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>&copy; 2025 FERREMUNDO. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
